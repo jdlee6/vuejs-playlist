@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
+// import Fruits from './Fruits.vue'
 
-// Recall: we are just abstracting this template in
-// a .vue component
-// Vue.component('name', {
-//   template: '<p> html tags here </p>'
-// })
+// Register component globally
+// Vue.component('fruits', Fruits);
 
 new Vue({
   el: '#app',
