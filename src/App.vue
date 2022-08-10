@@ -1,7 +1,8 @@
 <template>
   <div>
     <app-header></app-header>
-    <app-fruits></app-fruits>
+    <!-- pass props w/ v-bind: -->
+    <app-fruits v-bind:fruits="fruits"></app-fruits>
     <app-footer></app-footer>
   </div>
 </template>
@@ -19,7 +20,12 @@ export default {
   },
   data() {
     return {
-      title: "Fruit App"
+      fruits: [
+        { name: 'apple', color: 'red', show: false },
+        { name: 'banana', color: 'yellow', show: false },
+        { name: 'avocado', color: 'green', show: false },
+        { name: 'strawberry', color: 'red', show: false },
+      ]
     }
   },
 }

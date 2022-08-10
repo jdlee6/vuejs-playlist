@@ -11,14 +11,17 @@
 
 <script>
 export default {
+  // define props to expect
+  props: {
+    // prop validation
+    fruits: {
+      type: Array,
+      required: true
+    }
+  },
   data() {
     return {
-      fruits: [
-        { name: 'apple', color: 'red', show: false },
-        { name: 'banana', color: 'yellow', show: false },
-        { name: 'avocado', color: 'green', show: false },
-        { name: 'strawberry', color: 'red', show: false },
-      ]
+
     }
   },
 }
