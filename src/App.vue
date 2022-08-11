@@ -1,59 +1,43 @@
 <template>
   <div>
-    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
-    <app-fruits v-bind:fruits="fruits"></app-fruits>
-    <app-footer v-bind:title="title"></app-footer>
+    <!-- pass down html templates as 'slots' -->
+    <!-- 1. define what html to pass down -->
+    <form-helper>
+      <!-- name slots -->
+      <!-- <h2 slot="title">{{ title }}</h2> -->
+      <!-- <p slot="text">I am the slot description</p> -->
+      <div slot="form-header">
+        <h3>This is the title of the form</h3>
+      </div>
+      <div slot="form-fields">
+        <input type="text" placeholder="name" />
+        <input type="password" placeholder="password" password />
+      </div>
+
+      <div slot="form-controls">
+        <button v-on:click="handleSubmit">Submit</button>
+      </div>
+    </form-helper>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Fruits from './components/Fruits.vue';
+import formHelper from './components/FormHelper.vue';
 
 export default {
   components: {
-    'app-header': Header,
-    'app-footer': Footer,
-    'app-fruits': Fruits
+    'form-helper': formHelper
   },
   data() {
     return {
-      title: 'Vue Fruits',
-      fruits: [
-        { name: 'apple', color: 'red', show: false },
-        { name: 'banana', color: 'yellow', show: false },
-        { name: 'avocado', color: 'green', show: false },
-        { name: 'strawberry', color: 'red', show: false },
-      ]
+      title: 'I am dynamic slot title'
     }
   },
   methods: {
-    updateTitle(updatedTitle) {
-      this.title = updatedTitle;
+    handleSubmit() {
+      console.log('submitted!')
     }
   },
-  // life cycle hooks
-  beforeCreate() {
-    alert('Before Create!')
-  },
-  created() {
-    alert('Component created!');
-    // fetch data here as opposed to mounted
-  },
-  beforeMount() {
-    alert('Before Mount');
-  },
-  mounted() {
-    alert('mounted!');
-    // manipulate dom here
-  },
-  beforeUpdate() {
-    alert('before Update');
-  },
-  updated() {
-    alert('updated');
-  }
 }
 </script>
 
