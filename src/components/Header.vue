@@ -1,16 +1,27 @@
 <template>
   <header>
-    <h1>{{ title }}</h1>
+    <h1 v-on:click="changeTitle">{{ title }}</h1>
   </header>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      title: 'Vue Fruit'
+  props: {
+    title: {
+      type: String,
+      required: true,
     }
   },
+  data() {
+    return {
+    }
+  },
+  methods: {
+    changeTitle() {
+      // changes the state in this component locally ONLY
+      this.title = "Vue Fruits Title Change!"
+    }
+  }
 }
 </script>
 

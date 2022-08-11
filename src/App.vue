@@ -1,9 +1,9 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-bind:title="title"></app-header>
     <!-- pass props w/ v-bind: -->
     <app-fruits v-bind:fruits="fruits"></app-fruits>
-    <app-footer></app-footer>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   },
   data() {
     return {
+      title: 'Vue Fruits',
       fruits: [
         { name: 'apple', color: 'red', show: false },
         { name: 'banana', color: 'yellow', show: false },
@@ -32,7 +33,6 @@ export default {
 </script>
 
 <style scoped>
-/* tags to every h1 on the page w/o 'scoped' attr. */
 h1 {
   color: lightblue;
 }

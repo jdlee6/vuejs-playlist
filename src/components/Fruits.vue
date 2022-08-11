@@ -6,14 +6,13 @@
         <h3 v-show="fruit.show">{{ fruit.color }}</h3>
       </li>
     </ul>
+    <button v-on:click="deleteFruit">Delete Fruit</button>
   </div>
 </template>
 
 <script>
 export default {
-  // define props to expect
   props: {
-    // prop validation
     fruits: {
       type: Array,
       required: true
@@ -21,9 +20,14 @@ export default {
   },
   data() {
     return {
-
     }
   },
+  methods: {
+    deleteFruit() {
+      // delete og datasource
+      this.fruits.pop()
+    }
+  }
 }
 </script>
 
