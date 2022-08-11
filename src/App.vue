@@ -1,7 +1,6 @@
 <template>
   <div>
-    <app-header v-bind:title="title"></app-header>
-    <!-- pass props w/ v-bind: -->
+    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
     <app-fruits v-bind:fruits="fruits"></app-fruits>
     <app-footer v-bind:title="title"></app-footer>
   </div>
@@ -29,6 +28,12 @@ export default {
       ]
     }
   },
+  methods: {
+    updateTitle(updatedTitle) {
+      console.log(updatedTitle);
+      this.title = updatedTitle;
+    }
+  }
 }
 </script>
 

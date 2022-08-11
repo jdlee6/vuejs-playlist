@@ -19,7 +19,9 @@ export default {
   methods: {
     changeTitle() {
       // changes the state in this component locally ONLY
-      this.title = "Vue Fruits Title Change!"
+      // this.title = "Vue Fruits Title Change!"
+      // can emit a event to change OG state in ALL components
+      this.$emit('changeTitle', 'Vue Fruits Title Change!');
     }
   }
 }
