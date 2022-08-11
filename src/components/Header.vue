@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { bus } from '../main';
+
 export default {
   props: {
     title: {
@@ -21,7 +23,12 @@ export default {
       // changes the state in this component locally ONLY
       // this.title = "Vue Fruits Title Change!"
       // can emit a event to change OG state in ALL components
-      this.$emit('changeTitle', 'Vue Fruits Title Change!');
+      // this.$emit('changeTitle', 'Vue Fruits Title Change!');
+
+      // change state in this component locally
+      // this.title = 'Vue Fruits Title Changed'
+      // then emit event via bus
+      bus.$emit('titleChanged', 'Vue Fruits Title Changed Two')
     }
   }
 }

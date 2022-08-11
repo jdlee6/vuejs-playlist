@@ -30,9 +30,29 @@ export default {
   },
   methods: {
     updateTitle(updatedTitle) {
-      console.log(updatedTitle);
       this.title = updatedTitle;
     }
+  },
+  // life cycle hooks
+  beforeCreate() {
+    alert('Before Create!')
+  },
+  created() {
+    alert('Component created!');
+    // fetch data here as opposed to mounted
+  },
+  beforeMount() {
+    alert('Before Mount');
+  },
+  mounted() {
+    alert('mounted!');
+    // manipulate dom here
+  },
+  beforeUpdate() {
+    alert('before Update');
+  },
+  updated() {
+    alert('updated');
   }
 }
 </script>

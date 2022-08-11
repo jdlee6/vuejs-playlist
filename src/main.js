@@ -5,6 +5,8 @@ import App from './App.vue'
 // Register component globally
 // Vue.component('fruits', Fruits);
 
+export const bus = new Vue();
+
 new Vue({
   el: '#app',
   render: h => h(App)
