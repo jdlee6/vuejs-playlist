@@ -7,6 +7,23 @@
       <input type="text" v-model.lazy="blog.title" required />
       <label>Blog Content:</label>
       <textarea v-model="blog.content"></textarea>
+
+      <div id="checkboxes">
+        <label>Apples</label>
+        <input type="checkbox" value="apples" v-model="blog.fruits" />
+        <label>Grapes</label>
+        <input type="checkbox" value="grapes" v-model="blog.fruits" />
+        <label>Oranges</label>
+        <input type="checkbox" value="oranges" v-model="blog.fruits" />
+        <label>Mangoes</label>
+        <input type="checkbox" value="mangoes" v-model="blog.fruits" />
+      </div>
+
+      <label>Author:</label>
+      <select v-model="blog.author">
+        <option v-for="author in authors">{{ author }}</option>
+      </select>
+
     </form>
     <div id="preview">
       <h3>Preview blog</h3>
@@ -19,23 +36,12 @@
           {{ fruit }}
         </li>
       </ul>
-    </div>
-
-    <div id="checkboxes">
-      <label>Apples</label>
-      <input type="checkbox" value="apples" v-model="blog.fruits" />
-      <label>Grapes</label>
-      <input type="checkbox" value="grapes" v-model="blog.fruits" />
-      <label>Oranges</label>
-      <input type="checkbox" value="oranges" v-model="blog.fruits" />
-      <label>Mangoes</label>
-      <input type="checkbox" value="mangoes" v-model="blog.fruits" />
+      <p>Author: {{ blog.author }}</p>
     </div>
   </div>
 </template>
 
 <script>
-// Imports
 export default {
   data() {
     return {
@@ -43,8 +49,10 @@ export default {
       blog: {
         title: '',
         content: '',
-        fruits: []
-      }
+        fruits: [],
+        author: ''
+      },
+      authors: ['Joe', 'Joey', 'Joseph']
     }
   },
   methods: {
