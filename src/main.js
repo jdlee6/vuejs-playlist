@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import Fruits from './Fruits.vue'
+import VueResource from 'vue-resource'
 
-// Register component globally
-// Vue.component('fruits', Fruits);
-
-export const bus = new Vue();
+Vue.use(VueResource);
 
 new Vue({
   el: '#app',
