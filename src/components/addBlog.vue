@@ -13,6 +13,23 @@
       <p>Blog title: {{ blog.title }}</p>
       <p>Blog content:</p>
       <p>{{ blog.content }}</p>
+      <p>Blog categories:</p>
+      <ul>
+        <li v-for="fruit in blog.fruits">
+          {{ fruit }}
+        </li>
+      </ul>
+    </div>
+
+    <div id="checkboxes">
+      <label>Apples</label>
+      <input type="checkbox" value="apples" v-model="blog.fruits" />
+      <label>Grapes</label>
+      <input type="checkbox" value="grapes" v-model="blog.fruits" />
+      <label>Oranges</label>
+      <input type="checkbox" value="oranges" v-model="blog.fruits" />
+      <label>Mangoes</label>
+      <input type="checkbox" value="mangoes" v-model="blog.fruits" />
     </div>
   </div>
 </template>
@@ -25,7 +42,8 @@ export default {
       // blog obj. stores all related fields
       blog: {
         title: '',
-        content: ''
+        content: '',
+        fruits: []
       }
     }
   },
@@ -64,5 +82,10 @@ textarea {
 
 h3 {
   margin-top: 10px;
+}
+
+#checkboxes input {
+  display: inline-block;
+  margin-right: 10px;
 }
 </style>
